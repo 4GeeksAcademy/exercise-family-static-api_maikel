@@ -26,6 +26,11 @@ class FamilyStructure:
             "age": member["age"],
             "lucky_numbers": member["lucky_numbers"]
         }
+        if "id" in member:
+            new_member["id"] = member["id"]
+        else: 
+            new_member["id"] = self._generateId()
+        
         self._members.append(new_member)
         return new_member
 
@@ -40,7 +45,7 @@ class FamilyStructure:
         for member in self._members:
             if member["id"] == id:
                 return {
-                    "name": member["first_name"],
+                    "first_name": member["first_name"],
                     "id": member["id"],
                     "age": member["age"],
                     "lucky_numbers": member["lucky_numbers"]
